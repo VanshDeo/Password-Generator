@@ -11,6 +11,11 @@ export default function Home() {
       method: "POST",
       body: JSON.stringify({ email, password }),
     });
+    
+    if (!res.ok) {
+  const errorData = await res.json(); // make sure server sends JSON even on error
+  throw new Error(errorData.error || "Unknown error");
+}
     const data = await res.json();
     if (data.userId) localStorage.setItem("user", JSON.stringify(data));
     if (data.userId) window.location.href = "/vault";

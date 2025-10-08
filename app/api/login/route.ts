@@ -1,3 +1,5 @@
+export const runtime = "nodejs";
+
 import bcrypt from "bcryptjs";
 import connectDB from "../lib/db";
 import User from "../models/PassUser";

@@ -1,3 +1,5 @@
+export const runtime = "nodejs";
+
 import connectDB from "../lib/db";
 import VaultItem from "../models/VaultItems";
 import { NextResponse } from "next/server";

@@ -16,9 +16,12 @@ export default function Home() {
   const errorData = await res.json(); // make sure server sends JSON even on error
   throw new Error(errorData.error || "Unknown error");
 }
-    const data = await res.json();
-    if (data.userId) localStorage.setItem("user", JSON.stringify(data));
-    if (data.userId) window.location.href = "/vault";
+    console.log(res.status, res.headers.get("content-type"));
+
+    const text = await res.text();  // temporarily parse as text
+    console.log("Response body:", text);
+    // if (data.userId) localStorage.setItem("user", JSON.stringify(data));
+    // if (data.userId) window.location.href = "/vault";
   };
 
   return (

@@ -1,7 +1,7 @@
 import connectDB from "../lib/db";
 import VaultItem from "../models/VaultItems";
 
-export default async function POST(req: Request){
+export async function POST(req: Request){
   await connectDB();
   const { userId } = await req.json();
   try{

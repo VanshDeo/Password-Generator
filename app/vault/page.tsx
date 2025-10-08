@@ -74,12 +74,12 @@ export default function Vault() {
     url: "",
     notes: "",
   });
-  const [options, setOptions] = useState<Options>({
-    lower: true,
-    upper: true,
-    numbers: true,
-    symbols: true,
-  });
+  const [options] = useState<Options>({
+  lower: true,
+  upper: true,
+  numbers: true,
+  symbols: true,
+});
   const [length, setLength] = useState<number>(12);
 
   // 🔹 Load user & vault

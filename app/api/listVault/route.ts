@@ -8,6 +8,9 @@ export default async function POST(req: Request){
   const items = await VaultItem.find({ userId });
   return Response.json({ items });
   } catch (error) {
-    return Response.json({ error: "Server error" });
+    const errorMessage = typeof error === "object" && error !== null && "message" in error
+      ? (error as { message: string }).message
+      : String(error);
+    return Response.json({ error: errorMessage });
   }
 }
